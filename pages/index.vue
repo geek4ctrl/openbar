@@ -148,7 +148,7 @@ function printBill() {
                 <h1 class="font-bold text-4xl p-8 m-4 rounded-md text-slate-800">Tiger's Milk</h1>
             </div>
 
-            <div class="grid grid-cols-2">
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
 
                 <div class="flex flex-col grow pl-5 pr-5 p-8 border-2 border-slate-200 ml-4 mr-4 rounded-md">
                     <div class="font-bold text-2xl  pb-4 rounded-md">Orders</div>
