@@ -7,6 +7,21 @@ interface Beverage {
     price: number;
 }
 
+interface Bill extends Beverage {
+    count: number;
+}
+
+interface ClientOrder {
+    name: string;
+    count: number;
+    price: number;
+}
+
+interface Client {
+    user: string;
+    order: Array<ClientOrder>
+}
+
 export const useBarStore = defineStore('bar', {
     state: () => {
         return {
@@ -29,7 +44,7 @@ export const useBarStore = defineStore('bar', {
         increment() {
             this.count++;
         },
-        addToTab(currentUser: any, selectedBeverage: any, selectedBeverageCount: any) {
+        addToTab(currentUser: string, selectedBeverage: Beverage, selectedBeverageCount: number) {
             // if (event) {
 
             if (currentUser === null || currentUser === undefined) {
@@ -50,7 +65,8 @@ export const useBarStore = defineStore('bar', {
             if (selectedBeverage !== null || selectedBeverage !== undefined) {
 
                 // Check if user exists
-                this.openTab?.map((element: any) => {
+                this.openTab?.map((element: Client) => {
+
                     if (element.user === currentUser) {
                         this.isNewUser = false;
 
@@ -97,13 +113,13 @@ export const useBarStore = defineStore('bar', {
 
             this.$toast.success(`Bill have been cleared`);
         },
-        requestBill(currentUserBillName: any, numberOfPeople: any) {
+        requestBill(currentUserBillName: string, numberOfPeople: number) {
             if (currentUserBillName == "") {
                 // this.$toast.warning(`Please enter name of client`);
             }
 
             // Check if user exists
-            this.openTab?.map((element: any) => {
+            this.openTab?.map((element: Client) => {
                 if (element.user === currentUserBillName) {
                     // this.$toast.success(`Request for ${this.currentUserBillName.value} is being processed`);
 
@@ -113,7 +129,7 @@ export const useBarStore = defineStore('bar', {
 
             let sum = 0;
 
-            this.userBill.order.map((bill: any) => {
+            this.userBill.order.map((bill: Bill) => {
                 sum += bill.count;
                 this.totalBill += bill.count * bill.price;
             });

@@ -6,7 +6,7 @@ import { useBarStore } from '@/stores/bar';
 const barStore = useBarStore();
 const { addToTab, requestBill, getOpenTab } = barStore;
 
-    const currentUserBillName: any = ref("");
+    const currentUserBillName = ref("");
     const numberOfPeople = ref(1);
 
     function clearOrderFields() {

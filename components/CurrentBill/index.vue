@@ -39,8 +39,6 @@ function printBill() {
                         <div class="font-semi-bold mt-8"><span class="font-bold">VAT: % </span>15 </div>
                         <div class="font-semi-bold mt-8"><span class="font-bold">Total after VAT: R </span>{{ totalBill +
                             (totalBill * 0.15) }}</div>
-                        <div class="font-semi-bold"><span class="font-bold">Number of people splitting: </span> {{
-                            numberOfPeople }}</div>
                         <div class="font-semi-bold"><span class="font-bold">Total after optional split: R </span>{{
                             totalBillAfterSplit }}</div>
 
